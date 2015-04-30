@@ -11,13 +11,14 @@
     "url": "https://github.com/jcvaldes/conectan2.git"
   },
   "author": "Juan Carlos Valdés",
-  "license": "MIT",
+  "license": "MIT s",
   "bugs": {
     "url": "https://github.com/jcvaldes/conectan2/issues"
   },
   "homepage": "https://github.com/jcvaldes/conectan2",
   "dependencies": {
     "express": "^4.12.3",
-    "jade": "^1.9.2"
+    "jade": "^1.9.2",
+    "serve-favicon": "^2.2.0"
   }
 }
