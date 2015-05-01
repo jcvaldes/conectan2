@@ -3,7 +3,8 @@ var env = process.env.NODE_ENV || 'production',
     multer = require('multer'),
     path = require('path'),
     bodyParser = require('body-parser'),
-    middlewares = require('./middlewares/admin');
+    middlewares = require('./middlewares/admin'),
+    mongoose = require('mongoose');
 
 var ExpressServer = function(config) {
     config = config || {};
@@ -12,7 +13,7 @@ var ExpressServer = function(config) {
     //middlewares
     this.expressServer.use(bodyParser.json()); // for parsing application/json
     this.expressServer.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-    this.expressServer.use(multer({ dest: './uploadss/' }));
+    this.expressServer.use(multer({ dest: './uploads/' }));
 
     for(var middleware in middlewares){
         this.expressServer.use(middlewares[middleware]);
@@ -32,10 +33,18 @@ var ExpressServer = function(config) {
         res.render('partials/' + req.params.partialPath);
     });
 
-    this.expressServer.get('*', function (req, res) {
+    var messageSchema = mongoose.Schema({message: String});
+    var Message = mongoose.model('Message', messageSchema);
+    var mongoMessage;
+    Message.findOne().exec(function(err, messageDoc){
+        mongoMessage = messageDoc.message;
+    });
+
+
+    this.expressServer.get('*', function (req, res) {;
         res.render('index', {
-                fruta: 'Manzana',
-                color: 'Rojo'}
+                mongoMessage: mongoMessage
+            }
         );
     });
 

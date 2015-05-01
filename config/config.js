@@ -1,6 +1,7 @@
 var path = require('path'),
     rootPath = path.normalize(__dirname + '/..'),
-    env = process.env.NODE_ENV || 'development';
+    env = process.env.NODE_ENV || 'development',
+    port = process.env.PORT ||  3030;
 
 var config = {
     development: {
@@ -8,9 +9,9 @@ var config = {
         app: {
             name: 'conectan2'
         },
-        port: 3000,
+        port: port,
         staticPath: path.join(rootPath, '/public'),
-        db: 'mongodb://localhost/conectan2-development'
+        db: 'mongodb://localhost/conectan2db'
     },
 
     test: {
@@ -18,9 +19,9 @@ var config = {
         app: {
             name: 'conectan2'
         },
-        port: 3000,
+        port: port,
         staticPath: path.join(rootPath, '/public'),
-        db: 'mongodb://localhost/conectan2-test'
+        db: 'mongodb://jcvaldes:JCVjr6059$!@ds031962.mongolab.com:31962/conectan2db'
     },
 
     production: {
@@ -28,9 +29,9 @@ var config = {
         app: {
             name: 'conectan2'
         },
-        port: 3000,
+        port: port,
         staticPath: path.join(rootPath, '/public'),
-        db: 'mongodb://localhost/conectan2-production'
+        db: 'mongodb://jcvaldes:JCVjr6059$!@ds031962.mongolab.com:31962/conectan2db'
     }
 };
 
