@@ -9,6 +9,7 @@ var config = {
             name: 'conectan2'
         },
         port: 3000,
+        staticPath: path.join(rootPath, '/public'),
         db: 'mongodb://localhost/conectan2-development'
     },
 
@@ -18,6 +19,7 @@ var config = {
             name: 'conectan2'
         },
         port: 3000,
+        staticPath: path.join(rootPath, '/public'),
         db: 'mongodb://localhost/conectan2-test'
     },
 
@@ -27,6 +29,7 @@ var config = {
             name: 'conectan2'
         },
         port: 3000,
+        staticPath: path.join(rootPath, '/public'),
         db: 'mongodb://localhost/conectan2-production'
     }
 };
