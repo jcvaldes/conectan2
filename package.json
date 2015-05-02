@@ -14,6 +14,9 @@
     "node": "0.12.2",
     "npm": "2.7.4"
   },
+  "scripts": {
+    "postinstall": "bower cache clean && bower install"
+  },
   "author": "Juan Carlos Valdés",
   "license": "MIT s",
   "bugs": {
